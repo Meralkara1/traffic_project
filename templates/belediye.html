@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Belediye Trafik Paneli</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .nav-button {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .nav-button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔙 Ana Sayfaya Dön Butonu -->
+  <a href="{{ url_for('index') }}" class="nav-button">🏠 Ana Sayfaya Dön</a>
+
+  <h1> Belediye Trafik Paneli</h1>
+
+  <div class="box">
+    <h2>1️⃣ İlçe ve Mahalle Seçimi</h2>
+    <select id="ilce"><option value="">İlçe Seç</option></select>
+    <select id="mahalle"><option value="">Önce ilçe seçin</option></select>
+  </div>
+
+  <div class="box">
+    <h2>2️⃣ Mahalleye Ait Olay Türü Oranları</h2>
+    <button onclick="mahalleSebepOranGoster()">Olay Türü Dağılımı Göster</button>
+    <canvas id="sebepOranGrafik" height="100"></canvas>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
